@@ -1,69 +1,46 @@
 
 
-function fibs(fibSize) {
-
-  let result = [];
-  let currentNum = null;
-
-  // case
-  if( fibSize === 1) {
-    result.push(0);
-    return result;
+function sumRange(n, sum = 0) {
+  if (n <= 0) {
+    return sum;
   }
-  result.push(0);
-  result.push(1);
-
-  for (let i=0;i<fibSize;i++) {
-    currentNum = result[i] + result[i + 1];
-    result.push(currentNum);
-  }
-  return result;
+  return sumRange(n - 1, sum + n);
 }
 
-//fibsRec(n)
-//  resultArray
-//  currentNum = 0
-//  
-//  if(n =0) return array
-//   
-//  currentNum += fibsRec(n)
-//  return result.push(fibsRec(n -1))
+console.log(sumRange(3));
 
-
-// array.shift ??
-function fibsRec(fibSize) {
-
-    if (fibSize <= 0) return [];
-    if (fibSize === 1) return [0];
-    if (fibSize === 2) return [0, 1];
-  
-    const result = fibsRec(fibSize - 1);
-    result.push(result[result.length - 1] + result[result.length - 2]);
-  
-    return result;
-
-}
-console.log(fibsRec(2));
-
-function sumRange(num) {
-  if(num == 1) return 1;
-
-  return num + sumRange(num - 1);
-}
-
-function factorial(num) {
-  if (num === 1) {
+function power(x, n) {
+  if (n <= 0) {
     return 1
   }
-  return num = num * factorial(num - 1);
+  return x * power(x, n - 1);
 }
 
-//console.log(fibs(8));
+console.log(power(2,4))
+
+function factorial(n) {
+  if (n <= 0) {
+    return 1
+  }
+  return n * factorial(n - 1);
+
+}
+
+console.log(factorial(5));
 
 
+function productOfArray(arr) {
+  if (arr.length === 1) {
+    return arr[0];
+  }
+  return arr.shift * productOfArray(arr);
 
-//console.log(sumRange(4));
+}
 
-//console.log(factorial(5));
+console.log(productOfArray([1,3,5]));
 
-//console.log(factorial(5));
+function contains(obj,value) {
+  if (obj. === 0) {
+    return
+  }
+}
